@@ -30,11 +30,15 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/sweetalert2/sweetalert2.min.css') }}">
     <!-- endinject -->
 
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/demo1/style.min.css') }}">
     <!-- End layout styles -->
+
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendors/sweetalert2/sweetalert2.min.js') }}"></script>
 
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
 </head>
@@ -69,7 +73,7 @@
         <div class="page-wrapper">
 
             <!-- partial:../../partials/_navbar.html -->
-            <nav class="navbar">
+            <nav class="navbar" style="z-index: 1;">
                 <a href="#" class="sidebar-toggler">
                     <i data-feather="menu"></i>
                 </a>
@@ -95,12 +99,9 @@
         </div>
     </div>
 
-    <script src="../../../assets/vendors/core/core.js"></script>
-    <script src="../../../assets/vendors/datatables.net/jquery.dataTables.js"></script>
-    <script src="../../../assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
-    <script src="../../../assets/vendors/feather-icons/feather.min.js"></script>
-    <script src="../../../assets/js/template.js"></script>
-    <script src="../../../assets/js/data-table.js"></script>
+    <script src="{{ asset('assets/vendors/core/core.js') }}"></script>
+    <script src="{{ asset('assets/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('assets/js/template.js') }}"></script>
 
 </body>
 
