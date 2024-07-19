@@ -24,7 +24,7 @@ class KehadiranStoreRequest extends FormRequest
         return [
             "name" => "required|string|max:255",
             "email" => "required|string|email|max:255|unique:users,email",
-            "nrp" => "required|string|max:255|"
+            "nrp" => "required|string"
         ];
     }
 }
