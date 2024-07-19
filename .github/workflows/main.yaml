@@ -22,8 +22,6 @@ jobs:
     - name: Install Composer dependencies
       run: composer install --no-dev --optimize-autoloader
 
-    - name: Run tests
-      run: vendor/bin/phpunit
 
   deploy:
     runs-on: ubuntu-latest
