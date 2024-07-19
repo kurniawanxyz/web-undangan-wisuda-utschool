@@ -38,6 +38,8 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
 </head>
 
+@dump($errors->all())
+
 <body>
     <div class="main-wrapper">
         <div class="page-wrapper full-page">
@@ -56,26 +58,42 @@
                                     <div class="auth-form-wrapper px-4 py-5">
                                         <a href="#" class="noble-ui-logo d-block mb-2">Noble<span>UI</span></a>
                                         <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-                                        <form class="forms-sample">
+                                        <form class="forms-sample" action="{{ route('admin.login') }}" method="POST">
+                                            @csrf
                                             <div class="mb-3">
                                                 <label for="userEmail" class="form-label">Email address</label>
-                                                <input type="email" class="form-control" id="userEmail"
-                                                    placeholder="Email">
+                                                <input type="email"
+                                                    class="form-control @error('email') is-invalid @enderror"
+                                                    id="userEmail" name="email" placeholder="Email"
+                                                    value="{{ old('email') }}">
+                                                @error('email')
+                                                    <p class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </p>
+                                                @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label for="userPassword" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="userPassword"
-                                                    autocomplete="current-password" placeholder="Password">
+                                                <input type="password"
+                                                    class="form-control @error('email') is-invalid @enderror"
+                                                    name="password" id="userPassword" autocomplete="current-password"
+                                                    placeholder="Password">
+                                                @error('password')
+                                                    <p class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </p>
+                                                @enderror
                                             </div>
                                             <div class="form-check mb-3">
-                                                <input type="checkbox" class="form-check-input" id="authCheck">
+                                                <input type="checkbox" class="form-check-input" id="authCheck"
+                                                    name="remember_me" {{ old('remember_me') ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="authCheck">
                                                     Remember me
                                                 </label>
                                             </div>
                                             <div>
-                                                <a href="../../dashboard.html"
-                                                    class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</a>
+                                                <button type="submit"
+                                                    class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Login</button>
                                             </div>
                                         </form>
                                     </div>

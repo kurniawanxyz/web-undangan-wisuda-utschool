@@ -69,6 +69,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Credentials
+    |--------------------------------------------------------------------------
+    |
+    | The application credentials for login on Admin page
+    |
+    */
+
+    "admin_email" => env("APP_EMAIL_ADMIN"),
+    "admin_password" => env("APP_PASS_ADMIN"),
+    "admin_token" => null,
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Locale Configuration
     |--------------------------------------------------------------------------
     |
