@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\AuthenticationController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\KehadiranController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,4 +19,8 @@ Route::prefix("/admin")->name('admin.')->group(function () {
     Route::middleware('admin.auth')->group(function () {
         Route::get("/dashboard", DashboardController::class)->name('dashboard');
     });
+});
+Route::controller(KehadiranController::class)->group(function () {
+    Route::get('/', 'index')->name('kehadiran.index');
+    Route::post('/store', 'store')->name('kehadiran.store');
 });
