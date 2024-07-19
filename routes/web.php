@@ -18,6 +18,7 @@ Route::prefix("/admin")->name('admin.')->group(function () {
 
     Route::middleware('admin.auth')->group(function () {
         Route::get("/dashboard", DashboardController::class)->name('dashboard');
+        Route::delete("/user/delete/{user_id}", [KehadiranController::class, 'delete'])->name('delete-user');
     });
 });
 Route::controller(KehadiranController::class)->group(function () {
