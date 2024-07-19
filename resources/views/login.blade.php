@@ -38,26 +38,21 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" />
 </head>
 
-@dump($errors->all())
-
 <body>
     <div class="main-wrapper">
         <div class="page-wrapper full-page">
             <div class="page-content d-flex align-items-center justify-content-center">
 
                 <div class="row w-100 mx-0 auth-page">
-                    <div class="col-md-8 col-xl-6 mx-auto">
-                        <div class="card">
-                            <div class="row">
-                                <div class="col-md-4 pe-md-0">
-                                    <div class="auth-side-wrapper">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-8 ps-md-0">
-                                    <div class="auth-form-wrapper px-4 py-5">
-                                        <a href="#" class="noble-ui-logo d-block mb-2">Noble<span>UI</span></a>
-                                        <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
+                    <div class="mx-auto">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <div class="card row" style="width: 40%">
+                                <div class="ps-md-0">
+                                    <div class="auth-form-wrapper py-3 px-5">
+                                        <div class="img w-full d-flex justify-content-between mb-3">
+                                            <img src="{{ asset('assets/images/logo/dark/2.png') }}" alt="Logo UTS" class="w-50 mx-auto">
+                                        </div>
+                                        <h5 class="text-center text-muted fw-normal mb-4">Welcome back Adamin!</h5>
                                         <form class="forms-sample" action="{{ route('admin.login') }}" method="POST">
                                             @csrf
                                             <div class="mb-3">

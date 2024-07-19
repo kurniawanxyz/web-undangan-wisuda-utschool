@@ -24,7 +24,7 @@ class AuthenticationRequest extends FormRequest
         return [
             "email" => "required|email",
             "password" => "required",
-            "remember_me" => "nullable|boolean"
+            "remember_me" => "nullable"
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthenticationRequest;
 use Carbon\Carbon;
 use DB;
+use Illuminate\Http\Request;
 use Str;
 
 class AuthenticationController extends Controller

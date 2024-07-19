@@ -22,14 +22,14 @@ class Guest
         $adminToken = DB::table('personal_access_tokens')->where('token', $token)->first();
 
         if (!session('admin_logged_in') || !$adminToken || Carbon::now()->greaterThan($adminToken->expiration)) {
+            if ($adminToken) {
+                DB::table('personal_access_tokens')->where('token', $token)->delete();
+            }
+
+            session()->forget(['admin_logged_in', 'admin_token']);
             return $next($request);
         }
 
-        if ($adminToken) {
-            DB::table('personal_access_tokens')->where('token', $token)->delete();
-        }
-
-        session()->forget(['admin_logged_in', 'admin_token']);
-        return to_route('admin.login.view');
+        return back();
     }
 }
