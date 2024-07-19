@@ -18,6 +18,7 @@ Route::prefix("/admin")->name('admin.')->group(function () {
 
     Route::middleware('admin.auth')->group(function () {
         Route::get("/dashboard", DashboardController::class)->name('dashboard');
+        Route::get("/user/invitation/{user_id}", [DashboardController::class, "download_pdf"])->name('get-invitation');
         Route::delete("/user/delete/{user_id}", [KehadiranController::class, 'delete'])->name('delete-user');
     });
 });

@@ -1,6 +1,7 @@
 @extends('admin-layout')
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('assets/css/demo1/style.css') }}">
     <div class="grid-margin stretch-card d-flex flex-column">
         <div class="card mb-4 flex-row justify-content-between align-items-center p-3">
             <div>
@@ -39,14 +40,23 @@
                                 <tr>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td>{{ "Jakarta" }}</td>
-                                    <td>
-                                        <form action="{{ route('admin.delete-user', $item->id) }}" method="post" class="participant"
-                                            data-name="{{ $item->name }}">
+                                    <td>{{ 'Jakarta' }}</td>
+                                    <td class="d-flex flex-row">
+                                        <form action="{{ route('admin.delete-user', $item->id) }}" method="post"
+                                            class="participant" data-name="{{ $item->name }}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Hapus</button>
                                         </form>
+                                        <a href="{{ route('admin.get-invitation', $item->id) }}" class="download-btn ms-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"
+                                                class="svgIcon">
+                                                <path
+                                                    d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                                                </path>
+                                            </svg>
+                                            <span class="icon2"></span>
+                                        </a>
                                     </td>
                                 </tr>
                             @empty
