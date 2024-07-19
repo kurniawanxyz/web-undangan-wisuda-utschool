@@ -18,9 +18,11 @@ class KehadiranController extends Controller
         try{
             $data = User::create($req->validated());
 
-            $pdf = Pdf::loadView('pdf.undangan',$data);
-            $pdf->download('undangan.pdf');
+            $pdf = Pdf::loadView('pdf.undangan',[
+                "data" => $data->toArray()
+            ]);
             flash()->success('Berhasil! Data kehadiran anda sudah tersimpan');
+            return $pdf->download('undangan.pdf');
         }catch (\Exception $e){
             flash()->error($e->getMessage());
         }
