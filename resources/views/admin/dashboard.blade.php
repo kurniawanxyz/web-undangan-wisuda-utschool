@@ -30,8 +30,9 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Asal Perusahaan</th>
+                                <th class="text-center">Jumlah <br> Kehadiran</th>
+                                <th>Jabatan</th>
+                                <th class="text-center">Asal <br> Perusahaan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,8 +40,9 @@
                             @forelse ($participants as $item)
                                 <tr>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>{{ 'Jakarta' }}</td>
+                                    <td class="text-center">{{ $item->number_present }}</td>
+                                    <td>{{ $item->position }}</td>
+                                    <td class="text-center">{{ $item->perusahaan }}</td>
                                     <td class="d-flex flex-row">
                                         <form action="{{ route('admin.delete-user', $item->id) }}" method="post"
                                             class="participant" data-name="{{ $item->name }}">

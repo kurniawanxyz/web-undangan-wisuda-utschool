@@ -15,7 +15,7 @@ class DashboardController extends Controller
         if ($request->has('query')) {
             $participants->where("name", "LIKE", "%" . $request->input('query') . "%")->orWhere("email", "LIKE", "%" . $request->input('query') . "%");
         }
-        $participants = $participants->paginate(1);
+        $participants = $participants->paginate(10);
 
         return view('admin.dashboard', compact('participants'));
     }
@@ -29,9 +29,10 @@ class DashboardController extends Controller
             return back();
         }
 
-        $pdf = Pdf::loadView('pdf.undangan', [
-            "data" => $data->toArray()
+        $name = $data->toArray()['name'];
+        $pdf = Pdf::setPaper('A4', 'landscape')->loadView('pdf.undangan', [
+            "name" => $name
         ]);
-        return $pdf->download('undangan.pdf');
+        return $pdf->download('undangan pdf_' . $name . '.pdf');
     }
 }
