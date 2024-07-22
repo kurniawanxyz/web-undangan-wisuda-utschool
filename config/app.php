@@ -14,6 +14,9 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'event_date_time' => env('EVENT_DATE_TIME'),
+    'event_location' => env('EVENT_LOCATION'),
+    'company_address' => env('COMPANY_ADDRESS'),
 
     /*
     |--------------------------------------------------------------------------

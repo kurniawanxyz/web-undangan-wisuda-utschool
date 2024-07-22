@@ -23,8 +23,9 @@ class KehadiranStoreRequest extends FormRequest
     {
         return [
             "name" => "required|string|max:255",
-            "email" => "required|string|email|max:255|unique:users,email",
-            "nrp" => "required|string"
+            "perusahaan" => "required|string|max:255",
+            "position" => "required|string|max:255",
+            "number_present" => "required|string|max:255|min:1",
         ];
     }
 }

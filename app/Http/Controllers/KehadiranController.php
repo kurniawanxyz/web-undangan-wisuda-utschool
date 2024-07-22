@@ -18,8 +18,6 @@ class KehadiranController extends Controller
     {
         try {
             $data = User::create($req->validated());
-            dd($data);
-
             $pdf = Pdf::loadView('pdf.undangan', [
                 "data" => $data->toArray()
             ]);
