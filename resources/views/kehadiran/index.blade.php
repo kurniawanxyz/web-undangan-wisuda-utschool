@@ -133,6 +133,14 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         font-size: 1em;
     }
 
+    .countdown{
+        gap: 15px;
+    }
+
+    .form-label{
+        font-size: 10px
+    }
+
 }
 @media (min-width: 426px) and (max-width: 768px) {
     #keterangan span{
@@ -143,6 +151,21 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
     #map{
         width:100%;
+    }
+
+    .countdown-item {
+        padding: 20px;
+        width: 100px;
+        height: 150px;
+        font-size: 1em;
+    }
+
+    .countdown{
+        gap: 15px;
+    }
+
+    .form-label{
+        font-size: 10px
     }
 }
 
