@@ -22,14 +22,15 @@ jobs:
     - name: Install Composer dependencies
       run: composer install --no-dev --optimize-autoloader
 
-    steps:
     - name: Set proper permissions
       run: |
         sudo chmod -R 755 /var/www/web-undangan/bootstrap/cache
         sudo chmod -R 755 /var/www/web-undangan/storage
+
     - name: Rsync files
       run: |
         rsync -av ./ /var/www/web-undangan
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -48,8 +49,9 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > id_rsa
         chmod 600 id_rsa
         rsync -avz -e "ssh -i id_rsa -o StrictHostKeyChecking=no" ./ $USERNAME@$SERVER_IP:$DEPLOY_PATH
-        ssh -i id_rsa -o StrictHostKeyChecking=no $USERNAME@$SERVER_IP << 'EOF'
+        ssh -i id_rsa -o StrictHostKeyChecking=no $USERNAME@$SERVER_IP "
           cd $DEPLOY_PATH
           php artisan migrate --force
           sudo systemctl restart nginx # Restart web server jika diperlukan
-        EOF
+        "
+
