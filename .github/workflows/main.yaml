@@ -22,14 +22,14 @@ jobs:
     - name: Install Composer dependencies
       run: composer install --no-dev --optimize-autoloader
 
-  steps:
-  - name: Set proper permissions
-    run: |
-      sudo chmod -R 755 /path/to/your/project/bootstrap/cache
-      sudo chmod -R 755 /path/to/your/project/storage
-  - name: Rsync files
-    run: |
-      rsync -av /path/to/source /path/to/destination
+    steps:
+    - name: Set proper permissions
+      run: |
+        sudo chmod -R 755 /path/to/your/project/bootstrap/cache
+        sudo chmod -R 755 /path/to/your/project/storage
+    - name: Rsync files
+      run: |
+        rsync -av /path/to/source /path/to/destination
 
   deploy:
     runs-on: ubuntu-latest
