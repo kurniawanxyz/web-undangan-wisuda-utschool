@@ -19,10 +19,14 @@ class KehadiranController extends Controller
         try {
             $data = User::create($req->validated());
             $name = $data->toArray()['name'];
+
+            if ($req->kehadiran === 'tidak_hadir'){
+                return view('kehadiran.tidak_hadir');
+            }
+
             $pdf = Pdf::setPaper('A4', 'landscape')->loadView('pdf.undangan ', [
                 "name" => $name
             ]);
-            flash()->success('Berhasil! Data kehadiran anda sudah tersimpan');
             return $pdf->download('undangan pdf_' . $name . '.pdf');
         } catch (\Exception $e) {
             flash()->error($e->getMessage());

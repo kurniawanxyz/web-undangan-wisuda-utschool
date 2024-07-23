@@ -25,7 +25,7 @@ class KehadiranStoreRequest extends FormRequest
             "name" => "required|string|max:255",
             "perusahaan" => "required|string|max:255",
             "position" => "required|string|max:255",
-            "number_present" => "required|string|max:255|min:1",
+            "kehadiran" => "required|in:hadir,tidak_hadir",
         ];
     }
 }
