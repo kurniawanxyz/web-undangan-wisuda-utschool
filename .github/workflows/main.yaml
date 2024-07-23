@@ -22,11 +22,6 @@ jobs:
     - name: Install Composer dependencies
       run: composer install --no-dev --optimize-autoloader
 
-    - name: Set proper permissions
-      run: |
-        sudo chmod -R 755 ${{ secrets.DEPLOY_PATH }}/bootstrap/cache
-        sudo chmod -R 755 ${{ secrets.DEPLOY_PATH }}/storage
-
     - name: Rsync files
       run: |
         rsync -av ./ ${{ secrets.DEPLOY_PATH }}
