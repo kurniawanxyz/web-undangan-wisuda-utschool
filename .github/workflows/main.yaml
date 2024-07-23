@@ -24,12 +24,12 @@ jobs:
 
     - name: Set proper permissions
       run: |
-        sudo chmod -R 755 /var/www/web-undangan/bootstrap/cache
-        sudo chmod -R 755 /var/www/web-undangan/storage
+        sudo chmod -R 755 ${{ secrets.DEPLOY_PATH }}/bootstrap/cache
+        sudo chmod -R 755 ${{ secrets.DEPLOY_PATH }}/storage
 
     - name: Rsync files
       run: |
-        rsync -av ./ /var/www/web-undangan
+        rsync -av ./ ${{ secrets.DEPLOY_PATH }}
 
   deploy:
     runs-on: ubuntu-latest
