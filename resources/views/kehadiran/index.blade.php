@@ -92,7 +92,7 @@
                         @csrf
                         <div class="d-flex flex-column mt-3">
                             <label for="name" class="form-label fs-4">Nama</label>
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -101,7 +101,7 @@
                         </div>
                         <div class="d-flex flex-column mt-3">
                             <label for="name" class="form-label fs-4">Jabatan</label>
-                            <input type="text" name="position" class="form-control @error('position') is-invalid @enderror" value="{{ old('position') }}">
+                            <input type="text" name="position" class="form-control @error('position') is-invalid @enderror" value="{{ old('position') }}" required>
                             @error('position')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -110,7 +110,7 @@
                         </div>
                         <div class="d-flex flex-column mt-3">
                             <label for="name" class="form-label fs-4">Asal Perusahaan</label>
-                            <input type="text" name="perusahaan" class="form-control @error('perusahaan') is-invalid @enderror" value="{{ old('perusahaan') }}">
+                            <input type="text" name="perusahaan" class="form-control @error('perusahaan') is-invalid @enderror" value="{{ old('perusahaan') }}" required>
                             @error('perusahaan')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -119,7 +119,7 @@
                         </div>
                         <div class="d-flex flex-column mt-3">
                             <label for="name" class="form-label fs-4">Jumlah yang akan hadir</label>
-                            <input type="number" name="number_present" class="form-control @error('number_present') is-invalid @enderror" value="{{ old('number_present') }}">
+                            <input type="number" name="number_present" class="form-control @error('number_present') is-invalid @enderror" value="{{ old('number_present') }}" required>
                             @error('number_present')
                                 <div class="invalid-feedback">
                                     {{ $message }}
