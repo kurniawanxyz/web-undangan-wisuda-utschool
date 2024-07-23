@@ -50,7 +50,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 <body >
     <main class="row">
         <article style="height: 100vh" class="hero d-flex flex-column align-items-center justify-content-center  p-5 rounded-3">
-            <h1 class="display-4 fw-bold text-warning">Wisuda UT School Batch 33</h1>
+            <h1 class="display-4 fw-bold text-center text-warning">Wisuda UT School Batch 33</h1>
             <div class="countdown my-4 d-flex justify-content-center align-items-center">
                 <div class="countdown-item d-flex flex-column align-items-center me-3">
                     <div class="countdown-number display-4 fw-bold">00</div>
