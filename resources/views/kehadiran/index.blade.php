@@ -79,6 +79,12 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.rsvp-button:hover {
+    background: linear-gradient(to bottom, #ffb800, #ffe500);
+    color: #ffffff;
+    transition: 2.5s;
+}
+
 .btn-submit-srvp{
     display: block;
     padding: 15px 40px;
@@ -226,7 +232,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
                     <div>Detik</div>
                 </div>
             </div>
-            <button class="rsvp-button">R.S.V.P</button>
+            <a href="#form-rsvp" class="rsvp-button">R.S.V.P</a>
         </article>
         <article id="form-rsvp" class="hero d-flex flex-column align-items-center justify-content-center bg-light p-5 rounded-3 ">
             <article class="col-10 col-md-8 d-flex align-items-center justify-content-center">
@@ -251,9 +257,27 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
                         @enderror
                     </div>
                     <div class="d-flex flex-column mt-3">
-                        <label for="name" class="form-label fs-4">Asal Perusahaan</label>
+                        <label for="name" class="form-label fs-4">Instansi/Perusahaan</label>
                         <input type="text" name="perusahaan" class="form-control @error('perusahaan') is-invalid @enderror" value="{{ old('perusahaan') }}">
                         @error('perusahaan')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="d-flex flex-column mt-3">
+                        <label for="name" class="form-label fs-4">Nomor Telepon</label>
+                        <input type="text" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" value="{{ old('no_telp') }}">
+                        @error('no_telp')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="d-flex flex-column mt-3">
+                        <label for="name" class="form-label fs-4">Alamat</label>
+                        <textarea name="alamat" style="resize: none" rows="6" class="form-control @error('alamat') is-invalid @enderror">{{ old('alamat') }}</textarea>
+                        @error('alamat')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
