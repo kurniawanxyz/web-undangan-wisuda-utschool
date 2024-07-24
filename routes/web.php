@@ -24,5 +24,5 @@ Route::prefix("/admin")->name('admin.')->group(function () {
 });
 Route::controller(KehadiranController::class)->group(function () {
     Route::get('/', 'index')->name('kehadiran.index');
-    Route::post('/store', 'store')->name('kehadiran.store');
+     Route::post('/store', 'store')->name('kehadiran.store');
 });
