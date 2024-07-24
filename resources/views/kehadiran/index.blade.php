@@ -227,7 +227,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 <body style="overflow-x: hidden">
     <main class="row">
         <article style="height: 100vh;" class="d-flex justify-content-center align-items-center">
-            <img src="{{ asset('assets/images/logo/light/2.png') }}" class="w-75" lazy>
+            <img src="{{ asset('assets/images/logo/light/3.png') }}" class="w-75" lazy>
         </article>
         <article style="min-height: 100vh;background: #ffffff;" class="d-flex flex-column justify-content-center align-items-center p-5">
             <img class="w-50" src="{{asset('assets/images/invitation.png')}}" alt="">
