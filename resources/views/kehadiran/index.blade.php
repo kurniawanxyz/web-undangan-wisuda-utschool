@@ -115,9 +115,49 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     width:75%;
 }
 
+.syukur{
+    margin-top: -40px;
+    font-size: 25px;
+    margin-bottom: 10px
+}
+
+#selasa{
+    margin-top: -30px;
+    font-size: 30px !important;
+}
+
+.title-keterangan-waktu{
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px
+}
+
+.ket-event{
+    font-size: 50px !important;
+}
+
 @media (min-width: 320px) and (max-width: 425px) {
     #keterangan span{
         font-size: 16px
+    }
+
+    .ket-event{
+    font-size: 8px !important;
+    }
+
+    #selasa{
+        font-size: 10px !important;
+        margin: 0px ;
+    }
+
+    .title-keterangan-waktu{
+        font-size: 8px;
+        margin-top: 8px;
+    }
+
+    .syukur{
+        font-size: 8px;
+        margin-top: -10px;
     }
 
     #pt{
@@ -125,7 +165,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     }
 
     #pt ~ p{
-    font-size: 15px
+        font-size: 15px
     }
 
     #map{
@@ -153,7 +193,14 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         font-size: 40px
     }
 
+    #selasa{
+        font-size: 15px !important;
+        margin: -10px ;
+    }
 
+    .ket-event{
+    font-size: 20px !important;
+    }
 
     #map{
         width:100%;
@@ -182,21 +229,25 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         <article style="height: 100vh;" class="d-flex justify-content-center align-items-center">
             <img src="{{ asset('assets/images/logo/light/2.png') }}" class="w-75" lazy>
         </article>
-        <article style="height: 150vh; background: #ffffff;" class="d-flex flex-column justify-content-center align-items-center p-5">
-            <span class="fs-3 fw-semibold mb-5">Pelaksanaan:</span>
-            <div id="keterangan" class="row w-100 w-md-75 d-flex" style="">
-                <div class=" col-4 d-flex justify-content-center">
-                    <span   class="fw-bolder">Agustus</span>
+        <article style="min-height: 100vh;background: #ffffff;" class="d-flex flex-column justify-content-center align-items-center p-5">
+            <img class="w-50" src="{{asset('assets/images/invitation.png')}}" alt="">
+            <p class="fw-semibold text-center syukur">Dengan penuh rasa syukur dan suka cita, <br> Kami mengundang Bapak/Ibu dalam acara wisuda nasional</p>
+            {{-- <p class="fs-3 fw-semibold text-center">Kami mengundang Bapak/Ibu dalam acara wisuda nasional</p> --}}
+            <span class=" title-keterangan-waktu">Yang akan dilaksanakan, pada:</span>
+            <div id="keterangan" class="row w-75 w-md-75 d-flex" style="">
+                <div class="col-4 d-flex justify-content-center align-items-center">
+                    <span class="fw-bolder ket-event">Agustus</span>
                 </div>
-                <div style="border-right: 4px solid black;border-left: 4px solid black" class="col-4 d-flex justify-content-center">
-                    <span  class="text-warning fw-bolder">06</span>
+                <div style="border-right: 4px solid black;border-left: 4px solid black" class="col-4 d-flex justify-content-center flex-column align-items-center">
+                    <span class="text-warning fw-bolder">06</span>
+                    <span id="selasa">Selasa</span>
                 </div>
-                <div class=" col-4 d-flex justify-content-center">
-                    <span   class="fw-bolder">Selasa</span>
+                <div class=" col-4 d-flex justify-content-center align-items-center">
+                    <span class="fw-bolder ket-event">08.00 WIB</span>
                 </div>
             </div>
             <span class="fs-1 text-primary fw-bolder mt-5">Grand Ballroom</span>
-            <h1 id="pt" class=" fw-bolder text-center">PT. United Tractors</h1>
+            <h1 id="pt" class=" fw-bolder text-center">PT. United Tractors Tbk.</h1>
             <p class="my-4 text-center">Anda dapat menuju lokasi acara dengan bantuan peta dibawah ini</p>
             <article id="map" style="box-shadow: 4px 4px 20px 0px black" class=" rounded-3">
                 <script>
