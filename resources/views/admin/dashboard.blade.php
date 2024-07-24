@@ -11,7 +11,7 @@
                     </ol>
                 </nav>
             </div>
-            <div class="text-end">
+            <div class="text-end d-flex flex-row gap-3">
                 <form class="search-form">
                     <div class="input-group">
                         <div class="input-group-text">
@@ -21,6 +21,11 @@
                             value="{{ request('query') }}" placeholder="Search here...">
                     </div>
                 </form>
+                <div class="download-pdf">
+                    <button class="btn btn-primary"
+                        onclick="window.location.href = '{{ route('admin.download_all_pdf') }}'">Unduh semua pdf
+                        peserta</button>
+                </div>
             </div>
         </div>
         <div class="card">

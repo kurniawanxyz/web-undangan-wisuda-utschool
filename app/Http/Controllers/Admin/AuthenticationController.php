@@ -40,4 +40,19 @@ class AuthenticationController extends Controller
         flash()->error('Email or password is incorrect');
         return redirect()->back()->withInput();
     }
+
+    public function logout()
+    {
+        try{
+            $token = session('admin_token');
+            DB::table('personal_access_tokens')->where(['token' => $token])->delete();
+            session()->forget('admin_token');
+            session()->forget('admin_logged_in');
+
+            return to_route('kehadiran.index');
+        }catch(\Exception $e){
+            flash()->error($e->getMessage());
+            return back();
+        }
+    }
 }

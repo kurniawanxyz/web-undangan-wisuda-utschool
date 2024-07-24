@@ -77,8 +77,12 @@
                 <a href="#" class="sidebar-toggler">
                     <i data-feather="menu"></i>
                 </a>
-                <div class="navbar-content d-flex flex-row align-items-center">
+                <div class="navbar-content flex-row align-items-center justify-content-between">
                     <h1 class="h3">Dashboard Admin</h1>
+                    <form action="{{ route('admin.logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
                 </div>
             </nav>
             <!-- partial -->
@@ -92,7 +96,7 @@
                 class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
                 <p class="text-muted mb-1 mb-md-0">Copyright © {{ date('Y') }} <a href="https://www.nobleui.com/"
                         target="_blank">UT School</a>.</p>
-                <p class="text-muted">Created by UT School student <i class="mb-1 text-primary ms-1 icon-sm"
+                <p class="text-muted">Created by DMDC team <i class="mb-1 text-primary ms-1 icon-sm"
                         data-feather="heart"></i></p>
             </footer>
 
