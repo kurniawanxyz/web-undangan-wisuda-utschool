@@ -24,9 +24,9 @@ jobs:
         # ftp server
         server: undangan.kaitodecode.com
         # ftp username
-        username: undangan@undangan.kaitodecode.com
+        username: admin@undangan.kaitodecode.com
         # ftp password
-        password: asdfdfgfhjyt6yrtedsawZSXCDVBNMJK,LIOUKYTREWQASDFGBHNMJKLIOUYTGRFDSAWQ23E4RTGFHJKUIO8UYJHGVBCF
+        password: ANNwpwqejhbj123213jbadsaskdbajsb
         # Server port to connect to (read your web hosts docs)
         port: 21
         # protocol to deploy with - ftp, ftps, or ftps-legacy
