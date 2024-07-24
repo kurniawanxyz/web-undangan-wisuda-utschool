@@ -30,7 +30,8 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th class="text-center">Jumlah <br> Kehadiran</th>
+                                <th>Email</th>
+                                <th>No telepon</th>
                                 <th>Jabatan</th>
                                 <th class="text-center">Asal <br> Perusahaan</th>
                                 <th>Action</th>
@@ -40,7 +41,8 @@
                             @forelse ($participants as $item)
                                 <tr>
                                     <td>{{ $item->name }}</td>
-                                    <td class="text-center">{{ $item->number_present }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->no_telp }}</td>
                                     <td>{{ $item->position }}</td>
                                     <td class="text-center">{{ $item->perusahaan }}</td>
                                     <td class="d-flex flex-row">
