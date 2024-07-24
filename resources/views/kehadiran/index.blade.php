@@ -190,8 +190,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 @media (min-width: 426px) and (max-width: 768px) {
     #keterangan span{
-        font-size: 40px
-    }
+            font-size: 40px
+        }
 
     #selasa{
         font-size: 15px !important;
