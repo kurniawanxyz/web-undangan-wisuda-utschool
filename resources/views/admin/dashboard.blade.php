@@ -35,6 +35,7 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Kehadiran</th>
                                 <th>Email</th>
                                 <th>No telepon</th>
                                 <th>Jabatan</th>
@@ -46,6 +47,7 @@
                             @forelse ($participants as $item)
                                 <tr>
                                     <td>{{ $item->name }}</td>
+                                    <td>{{ ucfirst(str_replace('_', ' ', $item->kehadiran)) }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->no_telp }}</td>
                                     <td>{{ $item->position }}</td>
