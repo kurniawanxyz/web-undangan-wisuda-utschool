@@ -141,7 +141,20 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     margin-top: 20px
 }
 
+.logo-hero{
+    width: 80%;
+}
+
 @media (min-width: 320px) and (max-width: 425px) {
+    .logo-hero{
+        width: 100%;
+    }
+    .rsvp-button{
+        margin: 0px;
+        margin-top: 20px;
+        padding: 5px 15px;
+        font-size: 15px
+    }
     #keterangan span{
         font-size: 16px
     }
@@ -237,7 +250,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 <body style="overflow-x: hidden">
     <main class="row">
         <article style="height: 100vh;" class="d-flex justify-content-center align-items-center">
-            <img src="{{ asset('assets/images/logo/light/4.png') }}" class="w-75" lazy>
+            <img src="{{ asset('assets/images/logo/light/4.png') }}" class="logo-hero" lazy>
         </article>
         <article style="min-height: 100vh;background: #ffffff;" class="d-flex flex-column justify-content-center align-items-center p-5">
             {{-- <img class="w-50" src="{{asset('assets/images/invitation.png')}}" alt=""> --}}
