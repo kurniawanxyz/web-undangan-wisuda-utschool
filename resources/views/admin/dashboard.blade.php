@@ -32,9 +32,9 @@
                 @endif
             </div>
         </div>
-        <div class="card">
+        <div class="card" style="overflow: auto">
             <div class="card-body">
-                <div class="table-responsive">
+                <div>
                     <table class="table">
                         <thead>
                             <tr>
