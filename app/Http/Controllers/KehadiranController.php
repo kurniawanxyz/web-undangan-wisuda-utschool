@@ -53,6 +53,11 @@ class KehadiranController extends Controller
 
             $name = $user->name;
             $user->delete();
+
+            if (Storage::exists("public/user_pdf/{$user->id}.pdf")) {
+                Storage::delete("public/user_pdf/{$user->id}.pdf");
+            }
+
             flash()->success("Berhasil meghapus user '$name'");
 
             DB::commit();

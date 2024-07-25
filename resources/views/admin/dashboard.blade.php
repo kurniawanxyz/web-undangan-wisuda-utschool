@@ -21,11 +21,13 @@
                             value="{{ request('query') }}" placeholder="Search here...">
                     </div>
                 </form>
-                <div class="download-pdf">
-                    <button class="btn btn-primary"
-                        onclick="window.location.href = '{{ route('admin.download_all_pdf') }}'">Unduh semua pdf
-                        peserta</button>
-                </div>
+                @if (count($participants) > 0)
+                    <div class="download-pdf">
+                        <button class="btn btn-primary"
+                            onclick="window.location.href = '{{ route('admin.download_all_pdf') }}'">Unduh semua pdf
+                            peserta</button>
+                    </div>
+                @endif
             </div>
         </div>
         <div class="card">
