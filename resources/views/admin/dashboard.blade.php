@@ -54,7 +54,7 @@
                                     <td>{{ $item->no_telp }}</td>
                                     <td>{{ $item->position }}</td>
                                     <td class="text-center">{{ $item->perusahaan }}</td>
-                                    <td class="d-flex flex-row">
+                                    <td class="d-flex flex-row gap-3">
                                         <form action="{{ route('admin.delete-user', $item->id) }}" method="post"
                                             class="participant" data-name="{{ $item->name }}">
                                             @csrf
@@ -63,7 +63,7 @@
                                         </form>
                                         @if ($item->kehadiran == 'hadir')
                                             <a href="{{ route('admin.get-invitation', $item->id) }}"
-                                                class="download-btn ms-3">
+                                                class="download-btn">
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"
                                                     class="svgIcon">
                                                     <path
@@ -73,6 +73,16 @@
                                                 <span class="icon2"></span>
                                             </a>
                                         @endif
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Dropdown button
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @empty
