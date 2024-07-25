@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreConfirmationPresent;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use ZipArchive;
 
@@ -55,5 +57,29 @@ class DashboardController extends Controller
 
         $zip->close();
         return response()->download($zipFilePath, $zipFileName)->deleteFileAfterSend(true);
+    }
+
+
+    public function confirmation_present(StoreConfirmationPresent $request)
+    {
+        try {
+            DB::beginTransaction();
+            $user = User::where('id', $request->user_id)->first();
+            if (!$user) {
+                flash()->error("User tidak ditemukan");
+                return back();
+            }
+            User::where('id', $request->user_id)->update(
+                ["substitute" => $request->substitute, "konfirmasi_kehadiran" => $request->confirmation_present]
+            );
+
+            DB::commit();
+
+            flash()->success("Berhasil me-update data");
+            return back();
+        } catch (\Exception $e) {
+            flash()->error($e->getMessage());
+            return back();
+        }
     }
 }

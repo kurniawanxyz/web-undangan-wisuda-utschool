@@ -23,6 +23,7 @@ Route::prefix("/admin")->name('admin.')->group(function () {
         Route::delete("/user/delete/{user_id}", [KehadiranController::class, 'delete'])->name('delete-user');
 
         Route::get("/user/download/all-pdf", [DashboardController::class, 'download_all_pdf'])->name('download_all_pdf');
+        Route::post("/konfirmasi-kehadiran", [DashboardController::class, 'confirmation_present'])->name('confirmation_present');
     });
 });
 Route::controller(KehadiranController::class)->group(function () {

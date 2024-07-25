@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('no_telp')->unique()->nullable();
             $table->enum('kehadiran', ['hadir', 'tidak_hadir'])->nullable();
+            $table->enum('konfirmasi_kehadiran', ['hadir', 'tidak_hadir'])->nullable();
+            $table->string('substitute')->nullable();
             $table->timestamps();
         });
 
