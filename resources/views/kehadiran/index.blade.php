@@ -295,7 +295,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
             </article>
 
             <p class="my-4 text-center" >Anda dapat menuju lokasi acara dengan bantuan peta dibawah ini</p>
-            <article id="map" style="box-shadow: 4px 4px 20px 0px black" class=" rounded-3">
+            <article onclick="gotoMaps()" id="map" style="box-shadow: 4px 4px 20px 0px black" class=" rounded-3">
                 <script>
                     var myMap = L.map('map').setView(['-6.183769611741541', '106.93128819349285'], 20);
 
@@ -304,7 +304,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
                     }).addTo(myMap);
 
                     L.marker(['-6.183769611741541', '106.93128819349285']).addTo(myMap)
-                        .bindPopup('PT. United Tractors')
+                        .bindPopup('PT. United Tractors Tbk.')
                         .openPopup();
                 </script>
             </article>
@@ -387,6 +387,10 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     </main>
     <script  src="{{asset('assets/vendors/core/core.js')}}"></script>
     <script>
+
+       function gotoMaps(){
+        window.location.href = "https://www.google.com/maps/place/United+Tractors+Grand+Ballroom/@-6.1839582,106.9287247,739m/data=!3m1!1e3!4m14!1m7!3m6!1s0x2e69f4ae1bdda307:0x71928c4ac2bcccb4!2sUnited+Tractors+Grand+Ballroom!8m2!3d-6.1839635!4d106.9312996!16s%2Fg%2F11g9ntxwdt!3m5!1s0x2e69f4ae1bdda307:0x71928c4ac2bcccb4!8m2!3d-6.1839635!4d106.9312996!16s%2Fg%2F11g9ntxwdt?entry=ttu";
+       }
 
                 // Set the date we're counting down to
         var countDownDate = new Date("Aug 6, 2024 08:00:00").getTime();
