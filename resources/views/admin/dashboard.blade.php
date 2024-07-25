@@ -75,7 +75,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6">
+                                    <td colspan="7">
                                         <p class="mt-3 mb-3 text-center fw-bold">
                                             {{ request('query') ? 'Data not found!' : 'Data is empty...' }}
                                         </p>

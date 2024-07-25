@@ -52,7 +52,7 @@
                                         <div class="img w-full d-flex justify-content-between mb-3">
                                             <img src="{{ asset('assets/images/logo/dark/2.png') }}" alt="Logo UTS" class="w-50 mx-auto">
                                         </div>
-                                        <h5 class="text-center text-muted fw-normal mb-4">Welcome back Adamin!</h5>
+                                        <h5 class="text-center text-muted fw-normal mb-4">Welcome back Admin!</h5>
                                         <form class="forms-sample" action="{{ route('admin.login') }}" method="POST">
                                             @csrf
                                             <div class="mb-3">
