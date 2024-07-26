@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\TamuExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreConfirmationPresent;
 use App\Models\User;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 use ZipArchive;
 
 class DashboardController extends Controller
@@ -57,6 +59,11 @@ class DashboardController extends Controller
 
         $zip->close();
         return response()->download($zipFilePath, $zipFileName)->deleteFileAfterSend(true);
+    }
+
+    public function export()
+    {
+        return Excel::download(new TamuExport, 'tamu-undangan.xlsx');
     }
 
 

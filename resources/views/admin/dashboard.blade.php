@@ -24,6 +24,7 @@
                     </div>
                 </form>
                 @if (count($participants) > 0)
+                    <a class="btn btn-success" href="{{route('admin.export')}}">Export Excel</a>
                     <div class="download-pdf">
                         <button class="btn btn-primary"
                             onclick="window.location.href = '{{ route('admin.download_all_pdf') }}'">Unduh semua pdf
