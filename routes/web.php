@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\AuthenticationController;
+use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\KehadiranController;
+use App\Http\Controllers\monitor\MonitorController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,7 +18,6 @@ Route::prefix("/admin")->name('admin.')->group(function () {
     });
 
     Route::middleware('admin.auth')->group(function () {
-        Route::post("/logout", [AuthenticationController::class, 'logout'])->name('logout');
         Route::get("/dashboard", DashboardController::class)->name('dashboard');
         Route::get("/user/invitation/{user_id}", [DashboardController::class, "download_pdf"])->name('get-invitation');
         Route::delete("/user/delete/{user_id}", [KehadiranController::class, 'delete'])->name('delete-user');
@@ -27,6 +27,10 @@ Route::prefix("/admin")->name('admin.')->group(function () {
         Route::post("/konfirmasi-kehadiran", [DashboardController::class, 'confirmation_present'])->name('confirmation_present');
     });
 });
+
+Route::post("/logout", [AuthenticationController::class, 'logout'])->name('logout');
+Route::get('/monitor', MonitorController::class)->name('monitor.index');
+
 Route::controller(KehadiranController::class)->group(function () {
     Route::get('/', 'index')->name('kehadiran.index');
      Route::get('/store', function(){return to_route('kehadiran.index');});

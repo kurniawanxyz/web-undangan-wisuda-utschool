@@ -79,7 +79,7 @@
                 </a>
                 <div class="navbar-content flex-row align-items-center justify-content-between">
                     <h1 class="h3">Dashboard Admin</h1>
-                    <form action="{{ route('admin.logout') }}" method="post">
+                    <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button type="submit" class="btn btn-danger">Logout</button>
                     </form>

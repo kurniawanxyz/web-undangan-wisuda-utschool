@@ -46,3 +46,20 @@
         opacity: 1;
     }
 }
+
+
+.monitor-logout{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    opacity: 0;
+    transition: .5s;
+}
+
+.monitor-logout button{
+    cursor: default !important;
+}
+
+.monitor-logout:hover{
+    opacity: 1;
+}
