@@ -21,9 +21,9 @@ class Authentication
         $token = session('login_uts_token');
         $who_is_login = session('login_is');
         $adminToken = DB::table('personal_access_tokens')->where('token', $token)->first();
-        $is_expired = Carbon::now()->greaterThan($adminToken->expiration);
 
-        if (!session('login_is') || !$adminToken || $is_expired) {
+        if (!session('login_is') || !$adminToken) {
+            $is_expired = Carbon::now()->greaterThan($adminToken->expiration);
             if ($adminToken && $is_expired) {
                 DB::table('personal_access_tokens')->where('token', $token)->delete();
                 session()->forget(['login_is', 'login_uts_token']);
