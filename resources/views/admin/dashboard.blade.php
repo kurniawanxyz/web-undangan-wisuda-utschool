@@ -23,14 +23,35 @@
                             value="{{ request('query') }}" placeholder="Search here...">
                     </div>
                 </form>
-                @if (count($participants) > 0)
-                    <a class="btn btn-success" href="{{route('admin.export')}}">Export Excel</a>
-                    <div class="download-pdf">
-                        <button class="btn btn-primary"
-                            onclick="window.location.href = '{{ route('admin.download_all_pdf') }}'">Unduh semua pdf
-                            peserta</button>
+                <div class="dropdown">
+                    <button class="btn btn-primary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Aksi-aksi
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        @if (count($participants) > 0)
+                            <div class="dropdown-item">
+                                <a class="btn w-100 text-start" href="{{ route('admin.export') }}">Export Excel</a>
+                            </div class="dropdown-item">
+                            <div class="dropdown-item">
+                                <div class="download-pdf">
+                                    <button class="btn w-100 text-start"
+                                        onclick="window.location.href = '{{ route('admin.download_all_pdf') }}'">Unduh semua
+                                        pdf
+                                        peserta</button>
+                                </div>
+                            </div class="dropdown-item">
+                        @endif
+                        <div class="dropdown-item">
+                            <form action="{{ route('admin.open_close_form') }}" method="POST" id="openCloseForm">
+                                @csrf
+                                <button class="btn w-100 text-start">
+                                    {{ $form_status ? 'Buka formulir' : 'Tutup Formulir' }}
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                @endif
+                </div>
             </div>
         </div>
         <div class="card" style="overflow: auto">
@@ -158,5 +179,23 @@
     <script src="{{ asset('assets/js/confirm-delete.js') }}"></script>
     <script>
         showConfirmDeleteModal('.participant');
+        $("#openCloseForm").submit(async function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: "Apakah Anda yakin?",
+                text: "Ingin me-" + ({{ $form_status }} ? "buka " : "tutup") + " formulir",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Ya",
+                cancelButtonText: "Batal",
+                background: 'var(--bs-body-bg)',
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            });
+        });
     </script>
 @endsection

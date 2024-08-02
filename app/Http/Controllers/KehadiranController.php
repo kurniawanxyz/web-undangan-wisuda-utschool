@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\KehadiranStoreRequest;
+use App\Models\FormStatus;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
@@ -12,6 +13,11 @@ class KehadiranController extends Controller
 {
     public function index()
     {
+        $form = FormStatus::where('id', 1)->first();
+        if ($form) {
+            $form_status = $form->form_status;
+            return view('kehadiran.index', compact('form_status'));
+        }
         return view('kehadiran.index');
     }
 

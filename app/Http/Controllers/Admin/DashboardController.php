@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\TamuExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreConfirmationPresent;
+use App\Models\FormStatus;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -22,8 +23,10 @@ class DashboardController extends Controller
             $participants->where("name", "LIKE", "%" . $request->input('query') . "%")->orWhere("email", "LIKE", "%" . $request->input('query') . "%");
         }
         $participants = $participants->paginate(10);
+        $form = FormStatus::where('id', 1)->first();
+        $form_status = $form->form_status ?? false;
 
-        return view('admin.dashboard', compact('participants'));
+        return view('admin.dashboard', compact('participants', 'form_status'));
     }
 
     public function download_pdf(string $user_id)
@@ -65,6 +68,20 @@ class DashboardController extends Controller
     {
         return Excel::download(new TamuExport, 'tamu-undangan.xlsx');
     }
+
+    public function open_close_form()
+    {
+        $prev_stat = FormStatus::where('id', 1)->first();
+
+        if ($prev_stat) {
+            $prev_stat->form_status = !$prev_stat->form_status;
+            $prev_stat->save();
+            flash()->success("Berhasil me-" . ($prev_stat->form_status ? 'tutup' : 'buka') . ' formulir');
+        }
+
+        return back();
+    }
+
 
 
     public function confirmation_present(StoreConfirmationPresent $request)

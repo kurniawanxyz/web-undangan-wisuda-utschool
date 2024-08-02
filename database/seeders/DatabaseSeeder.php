@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\FormStatus;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,6 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        FormStatus::create([
+            'id' => 1,
+            'form_status' => false
+        ]);
     }
 }

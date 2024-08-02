@@ -313,75 +313,83 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
         <article id="form-rsvp" class="hero d-flex flex-column align-items-center justify-content-center bg-light p-5 rounded-3 ">
             <article class="col-10 col-md-8 d-flex align-items-center justify-content-center">
-                <form action="{{route("kehadiran.store")}}" method="post" class="w-100">
-                    @csrf
-                    <div class="d-flex flex-column mt-3">
-                        <label for="name" class="form-label fs-4">Nama</label>
-                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
-                        @error('name')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="d-flex flex-column mt-3">
-                        <label for="name" class="form-label fs-4">Email</label>
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
-                        @error('email')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="d-flex flex-column mt-3">
-                        <label for="name" class="form-label fs-4">Nomor Telepon</label>
-                        <input type="text" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" value="{{ old('no_telp') }}">
-                        @error('no_telp')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="d-flex flex-column mt-3">
-                        <label for="name" class="form-label fs-4">Jabatan</label>
-                        <input type="text" name="position" class="form-control @error('position') is-invalid @enderror" value="{{ old('position') }}">
-                        @error('position')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="d-flex flex-column mt-3">
-                        <label for="name" class="form-label fs-4">Instansi/Perusahaan</label>
-                        <input type="text" name="perusahaan" class="form-control @error('perusahaan') is-invalid @enderror" value="{{ old('perusahaan') }}">
-                        @error('perusahaan')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+                @if (isset($form_status) && !$form_status)
+                    <form action="{{route("kehadiran.store")}}" method="post" class="w-100">
+                        @csrf
+                        <div class="d-flex flex-column mt-3">
+                            <label for="name" class="form-label fs-4">Nama</label>
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
+                            @error('name')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="d-flex flex-column mt-3">
+                            <label for="name" class="form-label fs-4">Email</label>
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="d-flex flex-column mt-3">
+                            <label for="name" class="form-label fs-4">Nomor Telepon</label>
+                            <input type="text" name="no_telp" class="form-control @error('no_telp') is-invalid @enderror" value="{{ old('no_telp') }}">
+                            @error('no_telp')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="d-flex flex-column mt-3">
+                            <label for="name" class="form-label fs-4">Jabatan</label>
+                            <input type="text" name="position" class="form-control @error('position') is-invalid @enderror" value="{{ old('position') }}">
+                            @error('position')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="d-flex flex-column mt-3">
+                            <label for="name" class="form-label fs-4">Instansi/Perusahaan</label>
+                            <input type="text" name="perusahaan" class="form-control @error('perusahaan') is-invalid @enderror" value="{{ old('perusahaan') }}">
+                            @error('perusahaan')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
 
 
-<div class="d-flex flex-column mt-3">
-                        <label for="name" class="form-label fs-4 mt-4">Konfirmasi Kehadiran</label>
-                        <span class="d-flex gap-3 justify-content-start">
-                            <input style="width: 30px " type="radio" id="hadir" name="kehadiran" value="hadir" class="">
-                            <label for="hadir" class="form-label fs-4">Hadir</label>
-                        </span>
-                        <span class="d-flex gap-3 justify-content-start">
-                            <input style="width: 30px " type="radio" id="tidak_hadir" name="kehadiran" value="tidak_hadir" class="">
-                            <label for="tidak_hadir" class="form-label fs-4">Tidak Hadir</label>
-                        </span>
-                        @error('kehadiran')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                        <div class="d-flex flex-column mt-3">
+                            <label for="name" class="form-label fs-4 mt-4">Konfirmasi Kehadiran</label>
+                            <span class="d-flex gap-3 justify-content-start">
+                                <input style="width: 30px " type="radio" id="hadir" name="kehadiran" value="hadir" class="">
+                                <label for="hadir" class="form-label fs-4">Hadir</label>
+                            </span>
+                            <span class="d-flex gap-3 justify-content-start">
+                                <input style="width: 30px " type="radio" id="tidak_hadir" name="kehadiran" value="tidak_hadir" class="">
+                                <label for="tidak_hadir" class="form-label fs-4">Tidak Hadir</label>
+                            </span>
+                            @error('kehadiran')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="d-flex flex-column flex-md-row justify-content-end mt-5">
+                            <button class="btn-submit-srvp" type="submit">Konfirmasi</button>
+                        </div>
+                    </form>
+                @else
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading text-center">Formulir sudah di tutup!</h4>
+                        <hr>
+                        <p>Terima kasih atas partisipasi Anda.</p>
                     </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-end mt-5">
-                        <button class="btn-submit-srvp" type="submit">Konfirmasi</button>
-                    </div>
-                </form>
+                @endif
             </article>
         </article>
     </main>
