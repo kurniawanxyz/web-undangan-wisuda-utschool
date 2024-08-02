@@ -385,9 +385,9 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
                     </form>
                 @else
                     <div class="alert alert-danger" role="alert">
-                        <h4 class="alert-heading text-center">Formulir sudah di tutup!</h4>
+                        <h4 class="alert-heading text-center">Form RSVP sudah ditutup!</h4>
                         <hr>
-                        <p>Terima kasih atas partisipasi Anda.</p>
+                        <p>Terima kasih banyak atas partisipasinya😉.</p>
                     </div>
                 @endif
             </article>
